@@ -23,6 +23,6 @@ public class Chat : Hub {
         _context.Messages.Add(message);
         await _context.SaveChangesAsync();
 
-        await Clients.User(receiverId).SendAsync("Receive Message", senderId, content, message.Time);
+        await Clients.User(receiverId).SendAsync("Received Message", senderId, content, message.Time);
     }
 }
